@@ -349,19 +349,20 @@
         <p class="section-sub">השאירו פרטים ונחזור אליכם תוך 24 שעות</p>
       </div>
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/mjgdbkno" method="POST" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_language" value="he" />
           <div class="form-row">
-            <input type="text" placeholder="שם מלא" required />
-            <input type="tel" placeholder="מספר טלפון" required />
+            <input type="text" name="שם מלא" placeholder="שם מלא" required />
+            <input type="tel" name="טלפון" placeholder="מספר טלפון" required />
           </div>
-          <input type="email" placeholder="כתובת אימייל" />
-          <select required>
+          <input type="email" name="אימייל" placeholder="כתובת אימייל" />
+          <select name="סוג נכס" required>
             <option value="">סוג הנכס</option>
             <option>בית פרטי</option>
             <option>עסק / מסחרי</option>
             <option>אחר</option>
           </select>
-          <textarea placeholder="פרטים נוספים / שאלות..." rows="4"></textarea>
+          <textarea name="הודעה" placeholder="פרטים נוספים / שאלות..." rows="4"></textarea>
           <button type="submit" class="btn-primary btn-full">שלח — נחזור אליך תוך 24 שעות</button>
           <div class="form-success" id="formSuccess">
             <i class="ti ti-circle-check"></i> תודה! נחזור אליך בהקדם.
