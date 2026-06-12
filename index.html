@@ -9,9 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="icon" type="image/png" href="logofree.png" />
+  <link rel="apple-touch-icon" href="logofree.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- SKIP LINK for keyboard/screen reader users -->
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 
   <!-- TOP BAR -->
   <div class="topbar">
@@ -24,10 +29,10 @@
   </div>
 
   <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="ניווט ראשי">
     <div class="nav-right">
       <div class="nav-logo">
-        <div class="nav-logo-icon">SH</div>
+        <img src="logofree.png" alt="לוגו SH Solar Energy" style="height:52px;width:52px;object-fit:contain;border-radius:6px;" />
         <div class="nav-logo-text">
           <span class="nav-brand">SH Solar Energy</span>
           <small>אנרגיה חכמה · עתיד ירוק</small>
@@ -51,7 +56,7 @@
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu" id="mobileMenu" aria-label="תפריט נייד">
     <a href="#about" onclick="closeMobile()">אודות</a>
     <a href="#services" onclick="closeMobile()">שירותים</a>
     <a href="#process" onclick="closeMobile()">התהליך</a>
@@ -59,11 +64,12 @@
     <a href="#reviews" onclick="closeMobile()">ביקורות</a>
     <a href="#contact" onclick="closeMobile()">צור קשר</a>
     <a href="tel:0507633399" class="mobile-phone"><i class="ti ti-phone"></i> 050-763-3399</a>
-  </div>
+  </nav>
 
   <!-- HERO -->
+  <main id="main-content">
   <section class="hero" id="home">
-    <div class="hero-bg-pattern"></div>
+    <div class="hero-bg-pattern" role="presentation" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">
@@ -76,7 +82,7 @@
           <span class="gold">ותתחילו להרוויח מהשמש</span>
         </h1>
         <p class="hero-sub">SH Solar Energy מתמחה בהתקנת מערכות סולריות לבתים ועסקים. ייעוץ חינם, הצעת מחיר תוך 24 שעות, והתקנה מקצועית עם אחריות מלאה.</p>
-        <div class="hero-btns">
+        <div class="hero-btns" role="group" aria-label="כפתורי פעולה">
           <a href="#contact" class="btn-primary">קבל הצעת מחיר חינם</a>
           <a href="#projects" class="btn-secondary">הפרויקטים שלנו</a>
         </div>
@@ -88,7 +94,7 @@
       <div class="hero-visual">
         <div class="hero-logo-card">
           <div class="hero-logo-emblem">
-            <img src="logo.jpeg" alt="SH Solar Energy" style="width:160px;height:160px;object-fit:contain;border-radius:12px;" />
+            <img src="logo.jpeg" alt="לוגו SH Solar Energy - אנרגיה חכמה עתיד ירוק" style="width:160px;height:160px;object-fit:contain;border-radius:12px;" />
           </div>
         </div>
         <div class="hero-stats-grid">
@@ -299,17 +305,17 @@
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mjgdbkno" method="POST">
           <input type="hidden" name="_language" value="he" />
           <div class="form-row">
-            <input type="text" name="שם מלא" placeholder="שם מלא" required />
-            <input type="tel" name="טלפון" placeholder="מספר טלפון" required />
+            <label for="field-name" class="sr-only">שם מלא</label><input id="field-name" type="text" name="שם מלא" placeholder="שם מלא" required autocomplete="name" />
+            <label for="field-phone" class="sr-only">מספר טלפון</label><input id="field-phone" type="tel" name="טלפון" placeholder="מספר טלפון" required autocomplete="tel" />
           </div>
-          <input type="email" name="אימייל" placeholder="כתובת אימייל" />
-          <select name="סוג נכס" required>
+          <label for="field-email" class="sr-only">כתובת אימייל</label><input id="field-email" type="email" name="אימייל" placeholder="כתובת אימייל" autocomplete="email" />
+          <label for="field-type" class="sr-only">סוג הנכס</label><select id="field-type" name="סוג נכס" required>
             <option value="">סוג הנכס</option>
             <option>בית פרטי</option>
             <option>עסק / מסחרי</option>
             <option>אחר</option>
           </select>
-          <textarea name="הודעה" placeholder="פרטים נוספים / שאלות..." rows="4"></textarea>
+          <label for="field-message" class="sr-only">הודעה</label><textarea id="field-message" name="הודעה" placeholder="פרטים נוספים / שאלות..." rows="4" aria-label="הודעה"></textarea>
           <button type="submit" class="btn-primary btn-full">שלח — נחזור אליך תוך 24 שעות</button>
           <div class="form-success" id="formSuccess">
             <i class="ti ti-circle-check"></i> תודה! נחזור אליך בהקדם.
@@ -322,14 +328,16 @@
           <div class="cinfo-row"><i class="ti ti-mail"></i><a href="mailto:info@shsolarenergy.com">info@shsolarenergy.com</a></div>
           <div class="cinfo-row"><i class="ti ti-clock"></i><span>ראשון–חמישי, 08:00–18:00</span></div>
           <div class="social-row">
-            <a href="#" class="soc-btn" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-            <a href="#" class="soc-btn" aria-label="TikTok"><i class="ti ti-brand-tiktok"></i></a>
-            <a href="#" class="soc-btn" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+            <a href="#" class="soc-btn" aria-label="עמוד אינסטגרם של SH Solar Energy (נפתח בחלון חדש)" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i></a>
+            <a href="#" class="soc-btn" aria-label="עמוד טיקטוק של SH Solar Energy (נפתח בחלון חדש)" target="_blank" rel="noopener"><i class="ti ti-brand-tiktok"></i></a>
+            <a href="#" class="soc-btn" aria-label="עמוד פייסבוק של SH Solar Energy (נפתח בחלון חדש)" target="_blank" rel="noopener"><i class="ti ti-brand-facebook"></i></a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  </main><!-- end main-content -->
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -341,7 +349,7 @@
       <span class="footer-copy">© 2025 SH Solar Energy · כל הזכויות שמורות</span>
       <div class="footer-links">
         <a href="#">מדיניות פרטיות</a>
-        <a href="#">נגישות</a>
+        <a href="accessibility.html">הצהרת נגישות</a>
       </div>
     </div>
   </footer>
